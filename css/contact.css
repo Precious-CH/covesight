@@ -1,0 +1,215 @@
+/* ---------- LAYOUT ---------- */
+.contact-section{
+  padding:5rem 2rem;
+  background:#F4F3EF;
+}
+.contact-grid{
+  max-width:1160px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1.25fr;
+  gap:2.5rem;
+  align-items:start;
+}
+
+/* ---------- LEFT: CONTACT DETAILS ---------- */
+.contact-info{
+  padding:2.5rem 2.2rem;
+  background:linear-gradient(160deg,#12386F,#0B2A57);
+  border-top:4px solid #D6B76A;
+  border-radius:6px;
+  color:#C9D3E6;
+}
+.contact-info h2{
+  font-size:1.8rem;
+  font-weight:700;
+  color:#fff;
+  margin:0 0 .8rem;
+}
+.contact-info h2::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:3px;
+  background:#D6B76A;
+  margin-top:.9rem;
+}
+.contact-info > p{
+  line-height:1.7;
+  margin:1rem 0 2rem;
+}
+
+.contact-list{
+  list-style:none;
+  margin:0 0 2rem;
+  padding:0;
+}
+.contact-list li{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:1rem 0;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+.contact-list li:first-child{border-top:1px solid rgba(255,255,255,.14)}
+.contact-list svg{
+  flex:0 0 auto;
+  width:46px;
+  height:46px;
+  padding:12px;
+  fill:none;
+  stroke:#D6B76A;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  border:1px solid rgba(214,183,106,.5);
+  border-radius:8px;
+  background:rgba(214,183,106,.08);
+}
+.contact-list strong{
+  display:block;
+  font-size:.8rem;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#D6B76A;
+  margin-bottom:.15rem;
+}
+.contact-list a,
+.contact-list span{
+  color:#fff;
+  text-decoration:none;
+  font-size:1.02rem;
+  overflow-wrap:anywhere;
+}
+.contact-list a:hover{color:#D6B76A}
+
+/* ---------- BUTTONS ---------- */
+.contact-section .btn{
+  display:inline-block;
+  padding:.95rem 1.9rem;
+  font:500 1rem Roboto,"Segoe UI",Arial,sans-serif;
+  text-decoration:none;
+  border:2px solid transparent;
+  border-radius:4px;
+  cursor:pointer;
+  transition:background .3s, color .3s, border-color .3s;
+}
+.btn-wa{
+  background:#D6B76A;
+  border-color:#D6B76A;
+  color:#0B2A57;
+}
+.btn-wa:hover{
+  background:#fff;
+  border-color:#fff;
+}
+.btn-send{
+  width:100%;
+  margin-top:.4rem;
+  background:#0B2A57;
+  border-color:#0B2A57;
+  color:#fff;
+}
+.btn-send:hover{
+  background:#D6B76A;
+  border-color:#D6B76A;
+  color:#0B2A57;
+}
+
+/* ---------- RIGHT: FORM ---------- */
+.contact-form{
+  padding:2.5rem 2.2rem;
+  background:#fff;
+  border-top:4px solid #0B2A57;
+  border-radius:6px;
+  box-shadow:0 18px 40px rgba(11,42,87,.1);
+}
+.contact-form h2{
+  font-size:1.8rem;
+  font-weight:700;
+  color:#0B2A57;
+  margin:0 0 1.8rem;
+}
+.contact-form h2::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:3px;
+  background:#D6B76A;
+  margin-top:.9rem;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.2rem;
+}
+.contact-form label{
+  display:block;
+  margin-bottom:1.2rem;
+  font-size:.9rem;
+  font-weight:500;
+  color:#0B2A57;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  display:block;
+  width:100%;
+  margin-top:.4rem;
+  padding:.85rem 1rem;
+  font:400 1rem Roboto,"Segoe UI",Arial,sans-serif;
+  color:#171717;
+  background:#F7F8FB;
+  border:1px solid #CBD3E1;
+  border-radius:4px;
+  transition:border-color .25s, box-shadow .25s, background .25s;
+}
+.contact-form textarea{
+  min-height:140px;
+  resize:vertical;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  outline:none;
+  background:#fff;
+  border-color:#D6B76A;
+  box-shadow:0 0 0 3px rgba(214,183,106,.3);
+}
+
+/* confirmation and error messages */
+.form-confirm,
+.form-error{
+  margin:1.2rem 0 0;
+  padding:1rem 1.2rem;
+  border-radius:4px;
+  line-height:1.6;
+}
+.form-confirm{
+  background:#EAF5EE;
+  border-left:4px solid #2E8B57;
+  color:#1E5C3A;
+}
+.form-error{
+  background:#FBECEC;
+  border-left:4px solid #C62835;
+  color:#8A1C25;
+}
+.form-confirm[hidden],
+.form-error[hidden]{display:none}
+
+/* ---------- MAP (when you turn it on) ---------- */
+.map-section iframe{display:block}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .contact-section{padding:3.5rem 1.25rem}
+  .contact-info,
+  .contact-form{padding:2rem 1.4rem}
+  .form-row{grid-template-columns:1fr}
+}

@@ -1,0 +1,195 @@
+/* =====================================================
+   TRAINING & PROFESSIONAL DEVELOPMENT PAGE
+   ===================================================== */
+
+.tr-section{
+  padding:5rem 2rem 6rem;
+  background:#F4F3EF;
+  overflow:hidden;
+}
+.tr-section .wrap{
+  max-width:1160px;
+  margin:0 auto;
+}
+
+/* ---------- BIG TITLE ---------- */
+.tr-title{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  font-size:clamp(3.2rem,11vw,8.5rem);
+  font-weight:700;
+  line-height:1;
+  letter-spacing:.04em;
+  color:#0B2A57;
+  margin:0 0 3rem;
+}
+.tr-title::after{
+  content:"";
+  display:block;
+  width:80px;
+  height:4px;
+  background:#D6B76A;
+  margin:1.4rem auto 0;
+}
+
+/* ---------- 3-COLUMN LAYOUT ---------- */
+.tr-layout{
+  display:grid;
+  grid-template-columns:1fr minmax(240px,380px) 1fr;
+  gap:3rem;
+  align-items:start;
+}
+
+.tr-col{
+  display:flex;
+  flex-direction:column;
+  gap:2.6rem;
+  padding-top:1rem;
+}
+
+.tr-item{
+  position:relative;
+  padding-top:1.1rem;
+}
+.tr-item::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:42px;
+  height:3px;
+  background:#D6B76A;
+  transition:width .3s;
+}
+.tr-item:hover::before{width:90px}
+
+.tr-item h3{
+  font-size:clamp(1.15rem,1.7vw,1.4rem);
+  font-weight:700;
+  line-height:1.3;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#0B2A57;
+  margin:0 0 .8rem;
+}
+.tr-item a{
+  display:inline-block;
+  font-size:.95rem;
+  font-weight:500;
+  color:#0B2A57;
+  text-decoration:none;
+  border-bottom:2px solid #D6B76A;
+  padding-bottom:2px;
+  transition:color .25s, border-color .25s;
+}
+.tr-item a:hover{
+  color:#B8923A;
+  border-color:#B8923A;
+}
+
+/* ---------- CENTRE IMAGE (overlaps the title) ---------- */
+.tr-center{
+  position:relative;
+  z-index:2;
+  margin-top:-7rem;
+}
+.tr-center img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:16px;
+  filter:drop-shadow(0 18px 30px rgba(11,42,87,.28));
+}
+
+/* ---------- COURSE CARDS (for when you add the course details) ---------- */
+.tr-courses{
+  max-width:1160px;
+  margin:4rem auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+}
+.course-card{
+  display:flex;
+  flex-direction:column;
+  padding:2rem 1.7rem;
+  background:#fff;
+  border-top:4px solid #0B2A57;
+  border-radius:4px;
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+}
+.course-card:hover{
+  transform:translateY(-4px);
+  border-top-color:#D6B76A;
+  box-shadow:0 12px 28px rgba(11,42,87,.15);
+}
+.course-card h3{
+  font-size:1.3rem;
+  font-weight:500;
+  color:#0B2A57;
+  margin:0 0 .7rem;
+}
+.course-card p{
+  line-height:1.7;
+  color:#5B6780;
+  margin:0 0 1.2rem;
+}
+.course-card dl{
+  flex:1;
+  margin:0 0 1.5rem;
+}
+.course-card dl div{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.6rem 0;
+  border-bottom:1px solid #DDE2EC;
+  font-size:.95rem;
+}
+.course-card dt{
+  font-weight:500;
+  color:#0B2A57;
+}
+.course-card dd{
+  margin:0;
+  text-align:right;
+  color:#3A4256;
+}
+.course-card .btn{
+  display:inline-block;
+  align-self:flex-start;
+  padding:.85rem 1.6rem;
+  background:#0B2A57;
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+  border-radius:4px;
+  transition:background .3s, color .3s;
+}
+.course-card .btn:hover{
+  background:#D6B76A;
+  color:#0B2A57;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1000px){
+  .tr-courses{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:860px){
+  .tr-layout{
+    grid-template-columns:1fr 1fr;
+    gap:2rem 2.5rem;
+  }
+  .tr-center{
+    grid-column:1 / -1;
+    order:-1;
+    max-width:340px;
+    margin:0 auto;
+  }
+}
+@media(max-width:560px){
+  .tr-section{padding:3.5rem 1.25rem 4.5rem}
+  .tr-layout{grid-template-columns:1fr}
+  .tr-courses{grid-template-columns:1fr}
+}

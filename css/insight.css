@@ -1,0 +1,16 @@
+/* posters blend into the white page: no box, no shadow, no hard edge */
+.ev-blend img{
+  aspect-ratio:auto;
+  height:auto;
+  border-radius:0;
+  box-shadow:none;
+  mix-blend-mode:multiply;
+  -webkit-mask-image:
+    linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%),
+    linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:
+    linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%),
+    linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-composite:intersect;
+}
