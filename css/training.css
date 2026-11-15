@@ -172,21 +172,24 @@
   color:#0B2A57;
 }
 
+.tr-center{margin-top:-10rem}
+
+.tr-center img{
+  transform:scale(1.9);          /* bigger number = bigger man */
+  transform-origin:50% 0;        /* grows downward into the empty space, not up over the title */
+  pointer-events:none;           /* the see-through part can't block your links */
+}
+
+
+
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:1000px){
   .tr-courses{grid-template-columns:repeat(2,1fr)}
 }
+/* tablets and phones: the image sits on top, so grow it less */
 @media(max-width:860px){
-  .tr-layout{
-    grid-template-columns:1fr 1fr;
-    gap:2rem 2.5rem;
-  }
-  .tr-center{
-    grid-column:1 / -1;
-    order:-1;
-    max-width:340px;
-    margin:0 auto;
-  }
+  .tr-center{margin-top:0;margin-bottom:3rem}
+  .tr-center img{transform:scale(1.25)}
 }
 @media(max-width:560px){
   .tr-section{padding:3.5rem 1.25rem 4.5rem}

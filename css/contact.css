@@ -2,8 +2,6 @@
    CONTACT PAGE
    ===================================================== */
 
-/* ---------- HERO (grey gradient + overlapping image) ---------- */
-/* ---------- HERO (same size as the other sub pages) ---------- */
 .contact-hero{
   position:relative;
   display:flex;
@@ -56,6 +54,7 @@
   background:#D6B76A;
   color:#0B2A57;
   font-weight:500;
+  margin-top:1.2rem;
   text-decoration:none;
   border-radius:4px;
   transition:background .3s, color .3s;
@@ -78,7 +77,10 @@
 }
 
 /* the bigger phone hangs about 100px below the hero, so update the section padding */
-.contact-section{padding-top:calc(5rem + 100px)}
+.contact-section{
+  padding:calc(5rem + 100px) 2rem 5rem;   /* top padding leaves room for the phone */
+  background:#F4F3EF;
+}
 
 .contact-grid{
   max-width:1160px;
@@ -283,21 +285,42 @@
 /* =====================================================
    RESPONSIVE
    ===================================================== */
-@media(max-width:900px){
-  .contact-hero-cutout{
-    right:2%;
-    bottom:-130px;
-    height:125%;
-    max-width:42%;
+
+/* tablets (portrait) and phones */
+@media(max-width:768px){
+  .contact-hero{
+    min-height:340px;                 /* same as the other sub pages */
+    overflow-x:clip;                  /* trims anything sticking out sideways, not the part hanging below */
   }
-  .contact-section{padding-top:calc(5rem + 40px)}
+  .contact-hero-text{
+    max-width:100%;
+    padding:0 1.25rem 2.5rem;
+  }
+  .contact-hero-cutout{
+    width:560px;                      /* bigger number = bigger phone */
+    height:auto;
+    max-width:none;
+    right:-40px;
+    bottom:-150px;
+  }
+
+  .contact-section{padding:calc(3rem + 120px) 1.5rem 4rem}
+  .contact-grid{grid-template-columns:1fr}    /* the two cards stack */
 }
-@media(max-width:600px){
+
+/* small phones */
+@media(max-width:480px){
+  .contact-hero{min-height:300px}
+  .contact-hero-text h1{font-size:clamp(1.5rem,7vw,2rem)}
+  .contact-hero-text p{font-size:1rem}
   .contact-hero-cutout{
-    right:0;
-    bottom:-70px;
-    height:105%;
-    max-width:36%;
+    width:440px;
+    right:-75px;
+    bottom:-135px;
   }
-  .contact-section{padding-top:calc(3.5rem + 20px)}
+
+  .contact-section{padding:calc(3rem + 100px) 1.25rem 3.5rem}
+  .contact-info,
+  .contact-form{padding:2rem 1.4rem}
+  .form-row{grid-template-columns:1fr}
 }
