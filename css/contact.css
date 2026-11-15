@@ -1,8 +1,85 @@
-/* ---------- LAYOUT ---------- */
-.contact-section{
-  padding:5rem 2rem;
-  background:#F4F3EF;
+/* =====================================================
+   CONTACT PAGE
+   ===================================================== */
+
+/* ---------- HERO (grey gradient + overlapping image) ---------- */
+/* ---------- HERO (same size as the other sub pages) ---------- */
+.contact-hero{
+  position:relative;
+  display:flex;
+  align-items:flex-end;          /* text sits at the bottom, like .page-hero */
+  min-height:420px;              /* same as .page-hero */
+  padding:0;
+  background:#1B1E24;
 }
+.contact-hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+
+.contact-hero-text{
+  position:relative;
+  z-index:2;
+  max-width:560px;
+  padding:0 3.2rem 3.5rem;       /* same as .page-hero-text */
+}
+.contact-hero-text h1{
+  position:relative;
+  padding-top:1rem;
+  font-size:clamp(2rem,4.6vw,3.4rem);   /* same as .page-hero-text h1 */
+  font-weight:700;
+  line-height:1.2;
+  color:#fff;
+  margin:0 0 .4rem;
+}
+.contact-hero-text h1::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:90px;
+  height:3px;
+  background:#D6B76A;
+}
+.contact-hero-text p{
+  margin:0;
+  font-size:1.15rem;
+  color:#D6B76A;
+}
+.hero-btn{
+  display:inline-block;
+  padding:.95rem 1.8rem;
+  background:#D6B76A;
+  color:#0B2A57;
+  font-weight:500;
+  text-decoration:none;
+  border-radius:4px;
+  transition:background .3s, color .3s;
+}
+.hero-btn:hover{background:#fff}
+
+/* the second image: no border, no box, shadow follows its shape */
+.contact-hero-cutout{
+  position:absolute;
+  z-index:3;
+  right:7%;
+  bottom:-213px;
+  height:154%;                  /* was 115%: the phone is now about 30% bigger */
+  width:auto;
+  max-width:46%;
+  object-fit:contain;
+  border:0;
+  pointer-events:none;          /* the see-through part can't block clicks */
+  filter:drop-shadow(0 22px 24px rgba(0,0,0,.38));
+}
+
+/* the bigger phone hangs about 100px below the hero, so update the section padding */
+.contact-section{padding-top:calc(5rem + 100px)}
+
 .contact-grid{
   max-width:1160px;
   margin:0 auto;
@@ -203,13 +280,24 @@
 /* ---------- MAP (when you turn it on) ---------- */
 .map-section iframe{display:block}
 
-/* ---------- RESPONSIVE ---------- */
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
 @media(max-width:900px){
-  .contact-grid{grid-template-columns:1fr}
+  .contact-hero-cutout{
+    right:2%;
+    bottom:-130px;
+    height:125%;
+    max-width:42%;
+  }
+  .contact-section{padding-top:calc(5rem + 40px)}
 }
 @media(max-width:600px){
-  .contact-section{padding:3.5rem 1.25rem}
-  .contact-info,
-  .contact-form{padding:2rem 1.4rem}
-  .form-row{grid-template-columns:1fr}
+  .contact-hero-cutout{
+    right:0;
+    bottom:-70px;
+    height:105%;
+    max-width:36%;
+  }
+  .contact-section{padding-top:calc(3.5rem + 20px)}
 }
