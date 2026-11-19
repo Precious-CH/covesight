@@ -1054,13 +1054,12 @@ p, li, h1, h2, h3{overflow-wrap:break-word}
     overflow:hidden;                  /* keeps the slide-in from creating a sideways scrollbar */
   }
   .h1{
-    width:100%;
-    max-width:100%;
-    margin:0;
-    padding:1rem 1.25rem 2.5rem;
-    box-sizing:border-box;
-    animation:slideInMobile 1s ease-out 1s both;   /* same timing, gentler slide */
-  }
+  margin-left:auto;
+  margin-right:5%;                  /* was -14%: keeps the whole box on screen */
+  margin-top:15%;
+  max-width:min(640px,88vw);        /* never wider than the screen */
+  font-size:clamp(1.6rem,3.2vw,2.8rem);   /* a little smaller so each line fits */
+}
   .h1::before{
     left:1.25rem;
     width:70px;
