@@ -1019,7 +1019,7 @@ h2{font-size:clamp(1.5rem,3.4vw,2.6rem)}
 h3{font-size:clamp(1.1rem,2vw,1.4rem)}
 
 /* long words and emails never push the page sideways */
-p, li, a, h1, h2, h3{overflow-wrap:anywhere}
+p, li, h1, h2, h3{overflow-wrap:break-word}
 
 /* ---------- TABLETS ---------- */
 @media (max-width:900px){
@@ -1045,26 +1045,44 @@ p, li, a, h1, h2, h3{overflow-wrap:anywhere}
   .page-hero-text p{font-size:1rem}
 }
 
-@media (max-width:900px){
+@media (max-width:768px){
   .bg-img{
     aspect-ratio:auto;
-    min-height:clamp(480px,75vh,620px);
+    min-height:clamp(460px,72vh,600px);
     align-items:flex-end;
-    padding-top:7rem;
+    padding-top:8rem;
+    overflow:hidden;                  /* keeps the slide-in from creating a sideways scrollbar */
   }
-  .hero-text,
   .h1{
     width:100%;
     max-width:100%;
     margin:0;
     padding:1rem 1.25rem 2.5rem;
     box-sizing:border-box;
+    animation:slideInMobile 1s ease-out 1s both;   /* same timing, gentler slide */
   }
-  .h1::before{left:1.25rem}
+  .h1::before{
+    left:1.25rem;
+    width:70px;
+    /* the line keeps its own lineLoad animation from the desktop rule */
+  }
   .hero-text h1,
   .h1 h1,
   h1.h1{
-    font-size:clamp(1.5rem,6.2vw,2.2rem);
+    font-size:clamp(1.5rem,6.4vw,2.2rem);
+    line-height:1.15;
     overflow-wrap:break-word;
   }
+}
+
+@media (max-width:480px){
+  .hero-text h1,
+  .h1 h1,
+  h1.h1{font-size:1.5rem}
+}
+
+/* on phones the headline slides in from a shorter distance than on desktop */
+@keyframes slideInMobile{
+  from{opacity:0;transform:translateX(40px)}
+  to{opacity:1;transform:translateX(0)}
 }
