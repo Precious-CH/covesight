@@ -168,15 +168,21 @@ body{
     padding:.7rem 1.25rem;
   }
   .logo img{width:150px}
+
   .top-nav{
     width:100%;
     justify-content:space-between;
-    gap:.5rem;
+    gap:.4rem;
   }
   .top-nav a{
-    font-size:.72rem;
-    letter-spacing:.02em;
+    font-size:.50rem;
+    letter-spacing:0;
+    font-weight:500;
   }
+}
+
+@media (max-width:480px){
+  .top-nav a{font-size:.50rem}
 }
 
 .who-we-are{
