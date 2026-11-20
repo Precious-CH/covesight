@@ -1028,20 +1028,34 @@ p, li, h1, h2, h3{overflow-wrap:break-word}
   .btn{padding:.85rem 1.6rem}
 }
 
-/* ---------- 768px AND BELOW: homepage hero ---------- */
+/* ---------- 768px AND BELOW: homepage hero (full screen) ---------- */
 @media (max-width:768px){
   .bg-img{
     aspect-ratio:auto;
-    min-height:clamp(460px,72vh,600px);
+    height:100vh;                     /* fallback for older phones */
+    height:100svh;                    /* exact visible screen height on modern phones */
+    min-height:520px;                 /* never shorter than this, even in landscape */
     align-items:flex-end;
-    padding-top:8rem;
-    overflow:hidden;                  /* stops the slide-in from creating a sideways scrollbar */
+    padding-top:6.5rem;               /* keeps the text clear of the logo and menu */
+    overflow:hidden;
   }
+  .bg-img > img{object-position:30% center}
+
+  /* dark fade at the bottom so the headline stays readable */
+  .bg-img::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+    background:linear-gradient(to top,rgba(7,27,58,.88) 0%,rgba(7,27,58,.55) 38%,rgba(7,27,58,0) 70%);
+    pointer-events:none;
+  }
+
   .h1{
     width:100%;
     max-width:100%;
     margin:0;
-    padding:1rem 1.25rem 2.5rem;
+    padding:1rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom,0px));
     box-sizing:border-box;
     animation:slideInMobile 1s ease-out 1s both;
   }
@@ -1052,7 +1066,7 @@ p, li, h1, h2, h3{overflow-wrap:break-word}
   .hero-text h1,
   .h1 h1,
   h1.h1{
-    font-size:clamp(1.5rem,6.4vw,2.2rem);
+    font-size:clamp(1.6rem,7vw,2.3rem);
     line-height:1.15;
   }
 }
@@ -1091,4 +1105,11 @@ p, li, h1, h2, h3{overflow-wrap:break-word}
 @keyframes slideInMobile{
   from{opacity:0;transform:translateX(40px)}
   to{opacity:1;transform:translateX(0)}
+}
+
+@media (max-width:768px){
+  .bg-img{
+    height:100svh !important;
+    min-height:520px !important;
+  }
 }
