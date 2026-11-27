@@ -1,16 +1,189 @@
-/* posters blend into the white page: no box, no shadow, no hard edge */
+/* =====================================================
+   INSIGHTS / RESOURCES PAGE
+   Loads after styles.css and education.css
+   (the image + text rows, the // labels and the gold ticks come from education.css)
+   ===================================================== */
+
+/* ---------- INTRO + JUMP LINKS ---------- */
+.in-top{
+  padding:4rem 2rem 1rem;
+  background:#fff;
+  text-align:center;
+}
+.in-top p{
+  max-width:640px;
+  margin:0 auto 1.8rem;
+  font-size:1.15rem;
+  line-height:1.7;
+  color:#5B6780;
+}
+.in-jump{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.7rem;
+}
+.in-jump a{
+  padding:.6rem 1.2rem;
+  border:1.5px solid #0B2A57;
+  border-radius:999px;
+  font-size:.92rem;
+  font-weight:500;
+  text-decoration:none;
+  color:#0B2A57;
+  transition:background .25s, color .25s, border-color .25s;
+}
+.in-jump a:hover{
+  background:#0B2A57;
+  color:#fff;
+}
+
+/* ---------- ARTICLE ROWS ---------- */
+.ev-row{scroll-margin-top:90px}                 /* stops the fixed menu covering the heading after a jump */
+.ev-row + .ev-row{border-top:1px solid #E6E9F0}
+
+/* pictures blend into the white page: no box, no shadow, no rounded frame */
 .ev-blend img{
   aspect-ratio:auto;
   height:auto;
   border-radius:0;
   box-shadow:none;
-  mix-blend-mode:multiply;
-  -webkit-mask-image:
-    linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%),
-    linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
-  -webkit-mask-composite:source-in;
-  mask-image:
-    linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%),
-    linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
-  mask-composite:intersect;
+}
+
+.ev-text h2{font-size:clamp(1.6rem,3vw,2.4rem)}
+.in-sub{
+  margin:-.4rem 0 1.2rem;
+  font-size:1.1rem;
+  font-weight:500;
+  color:#B8923A;
+}
+
+/* ---------- "READ THE FULL ARTICLE" ---------- */
+.art-wrap{
+  max-width:860px;
+  margin:2.5rem auto 0;
+  text-align:center;
+}
+.art-more summary{
+  display:inline-flex;
+  align-items:center;
+  gap:.7rem;
+  padding:.9rem 1.7rem;
+  background:#0B2A57;
+  color:#fff;
+  font-weight:500;
+  border-radius:4px;
+  cursor:pointer;
+  list-style:none;
+  transition:background .3s, color .3s;
+}
+.art-more summary::-webkit-details-marker{display:none}
+.art-more summary::after{
+  content:"+";
+  font-size:1.4rem;
+  line-height:1;
+  color:#D6B76A;
+  transition:color .3s;
+}
+.art-more summary:hover{
+  background:#D6B76A;
+  color:#0B2A57;
+}
+.art-more summary:hover::after{color:#0B2A57}
+.art-more summary:focus-visible{outline:3px solid #D6B76A;outline-offset:3px}
+
+/* the button text changes when the article is open */
+.art-more .s-close{display:none}
+.art-more[open] .s-open{display:none}
+.art-more[open] .s-close{display:inline}
+.art-more[open] summary::after{content:"\2212"}
+
+/* ---------- ARTICLE TEXT ---------- */
+.art-body{
+  margin-top:1.8rem;
+  padding:2.2rem 2.4rem;
+  text-align:left;
+  background:#F4F3EF;
+  border-left:4px solid #D6B76A;
+  border-radius:0 8px 8px 0;
+}
+.art-body p{
+  margin:0 0 1.15rem;
+  font-size:1.05rem;
+  line-height:1.85;
+  color:#3A4256;
+}
+.art-body h3{
+  margin:2rem 0 .6rem;
+  font-size:1.3rem;
+  font-weight:500;
+  color:#0B2A57;
+}
+.art-body h3::before{
+  content:"";
+  display:block;
+  width:36px;
+  height:3px;
+  margin-bottom:.7rem;
+  background:#D6B76A;
+}
+.art-body h4{
+  margin:1.6rem 0 .4rem;
+  font-size:1.1rem;
+  font-weight:500;
+  color:#0B2A57;
+}
+.art-body ul{
+  list-style:none;
+  margin:0 0 1.2rem;
+  padding:0;
+}
+.art-body li{
+  position:relative;
+  padding:.7rem 0 .7rem 1.8rem;
+  border-bottom:1px solid #DDE2EC;
+  line-height:1.7;
+  color:#3A4256;
+}
+.art-body li::before{
+  content:"";
+  position:absolute;
+  left:.1rem;
+  top:1.15rem;
+  width:.55rem;
+  height:.55rem;
+  background:#D6B76A;
+  border-radius:50%;
+}
+.art-body li strong{color:#0B2A57}
+
+/* the closing line of each article */
+.art-body .art-sign{
+  margin:2rem 0 0;
+  padding:1.2rem 1.4rem;
+  background:#fff;
+  border-left:4px solid #0B2A57;
+  border-radius:0 6px 6px 0;
+  font-weight:500;
+  color:#0B2A57;
+}
+.art-body .art-close{
+  margin:1.6rem 0 0;
+  text-align:center;
+  font-size:1.2rem;
+  font-weight:700;
+  color:#0B2A57;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width:768px){
+  .in-top{padding:3rem 1.25rem .5rem}
+  .art-body{padding:1.5rem 1.25rem}
+  .ev-media.ev-blend{max-width:520px;margin:0 auto}
+}
+@media (max-width:480px){
+  .art-more summary{width:100%;justify-content:center}
+  .in-jump a{font-size:.85rem}
 }

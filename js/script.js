@@ -31,3 +31,16 @@ document.querySelectorAll('.contact-form, .ev-form').forEach((form) => {
     }
   });
 });
+
+// Process tabs (homepage)
+const procTabs = document.querySelectorAll('.proc-tab');
+procTabs.forEach((tab) => {
+  tab.addEventListener('click', () => {
+    procTabs.forEach((t) => {
+      const on = t === tab;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on);
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  });
+});
